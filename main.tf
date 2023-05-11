@@ -1,5 +1,5 @@
 module "files" {
-  source  = "./modules/files"
+  source  = "./module/files"
   content = "test"
   name    = "name"
 }
