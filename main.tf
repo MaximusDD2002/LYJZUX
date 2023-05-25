@@ -37,7 +37,7 @@ output "read_module_outputs" {
 }
 output "write_module_outputs" {
   value = module.write
-}
+} 
 
 output "data_module_outputs" {
    value = module.data.file_id
