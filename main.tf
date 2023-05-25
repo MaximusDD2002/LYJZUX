@@ -3,7 +3,6 @@ module "files" {
   content = "test"
   name    = "name"
   number_of_files = 5
-  var = "module.files.file_content"
 }
 
 module "read" {
