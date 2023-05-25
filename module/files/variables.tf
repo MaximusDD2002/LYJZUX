@@ -9,7 +9,7 @@ variable "content" {
   type        = string
 }
 
-variable "filename" {
+variable "name" {
   description = "The name of the files"
   type        = string
 }
