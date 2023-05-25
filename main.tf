@@ -1,7 +1,7 @@
 module "files" {
   source  = "./module/files"
   content = "test"
-  filename    = "name"
+  filename    = "filename"
 }
 
 module "read" {
