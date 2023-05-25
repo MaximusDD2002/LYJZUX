@@ -1,7 +1,7 @@
 module "files" {
   source  = "./modules/files"
   content = "test"
-  name    = "filename"
+  name    = "name"
   number_of_files = 5
 }
 
