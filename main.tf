@@ -1,12 +1,12 @@
 module "files" {
-  source  = "./modules/files"
+  source  = "./module/files"
   content = "test"
   name    = "name"
   number_of_files = 5
 }
 
 module "read" {
-  source  = "./modules/read"
+  source  = "./module/read"
   prefix  = "read-"
 }
 
@@ -15,7 +15,7 @@ locals {
 }
 
 module "write" {
-  source = "./modules/write"
+  source = "./module/write"
   answer_1 = local.answers
   answer_2 = local.answers
   answer_3 = local.answers
@@ -24,7 +24,7 @@ module "write" {
 }
 
 module "data" {
-  source = "./modules/data"
+  source = "./module/data"
   file_path = module.files.file_paths[0]
   depends_on = [module.files]
 }
