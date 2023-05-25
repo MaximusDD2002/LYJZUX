@@ -1,41 +1,44 @@
 module "files" {
-  source  = "./module/files"
+  source  = "./modules/files"
   content = "test"
-  filename    = "filename"
+  name    = "filename"
+  number_of_files = 5
 }
 
 module "read" {
-  source        = "./modules/read"
-  read_variable = tostring(module.files.example_output[0])
+  source  = "./modules/read"
+  prefix  = "read-"
 }
 
-output "final_output" {
-  value = module.read.read_output
-}
-# DO NOT DELETE ANYTHING BEFORE THIS POINT
 locals {
-  answers = file("modules/write/answers.tfvars")
+  answers = file("terraform.tfvars")
 }
 
 module "write" {
   source = "./modules/write"
+  answer_1 = local.answers
+  answer_2 = local.answers
+  answer_3 = local.answers
+  answer_4 = local.answers
+  answer_5 = local.answers
+}
 
-  answer_1 = trim(split("=", split("\n", local.answers)[0])[1], "\"\n")
-  answer_2 = trim(split("=", split("\n", local.answers)[1])[1], "\"\n")
-  answer_3 = trim(split("=", split("\n", local.answers)[2])[1], "\"\n")
-  answer_4 = trim(split("=", split("\n", local.answers)[3])[1], "\"\n")
-  answer_5 = trim(split("=", split("\n", local.answers)[4])[1], "\"\n")
-}
- 
 module "data" {
-   source = "./modules/data"
-   file_path = module.files.example_output[0]
-   depends_on = [module.files]
+  source = "./modules/data"
+  file_path = module.files.file_paths[0]
+  depends_on = [module.files]
 }
- 
- output "write_answers" {
-   value = module.write.answers
- } 
- output "file_id" {
+
+output "files_module_outputs" {
+  value = module.files
+}
+output "read_module_outputs" {
+  value = module.read
+}
+output "write_module_outputs" {
+  value = module.write
+}
+
+output "data_module_outputs" {
    value = module.data.file_id
- }
+}
