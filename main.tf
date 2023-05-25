@@ -6,7 +6,7 @@ module "files" {
 }
 
 module "read" {
-  source  = "./module/read"
+  source  = "./module/Read"
   prefix  = "read-"
 }
 
