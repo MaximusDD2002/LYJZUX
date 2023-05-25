@@ -8,6 +8,7 @@ module "files" {
 module "read" {
   source  = "./module/Read"
   prefix  = "read-"
+  var = "module.files.file_content"
 }
 
 locals {
