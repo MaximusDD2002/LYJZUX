@@ -1,4 +1,4 @@
-variable "read_variable" {
+variable "prefix" {
+  description = "Prefix for the output"
   type        = string
-  description = "Description of the variable in the 'read' module"
 }
