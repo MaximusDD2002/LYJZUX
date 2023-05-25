@@ -1,5 +1,5 @@
 module "files" {
   source = "../files"
-  content = "VURYGE"
+  content = "test"
   name = "files"
 }
